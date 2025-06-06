@@ -20,7 +20,10 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "allowJs": false, // JS 파일을 사용하지 않는다면 명시적으로 false
+    "forceConsistentCasingInFileNames": true, // 파일명 대소문자 엄격하게
+    "esModuleInterop": true // Node 모듈과의 호환성을 높이기 위해 명시
   },
-  "include": ["src", "src/custom.d.ts"]
+  "include": ["src", "src/custom.d.ts", "vite.config.ts"]
 }
