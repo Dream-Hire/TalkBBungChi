@@ -1,10 +1,10 @@
-package com.talkbbungchi.backend;
+package com.dreamhire.talkbbungchi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendApplicationTests {
+class TalkbbungchiApplicationTests {
 
 	@Test
 	void contextLoads() {
