@@ -5,39 +5,31 @@ spring:
   application:
     name: talkbbungchi
 
-  # 임시로 H2 인메모리 DB 사용 (MySQL/MongoDB 설치 전까지)
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:mysql://mysql:3306/talkbbungchi
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: user
+    password: userpw
 
-  # H2 콘솔 활성화 (개발용)
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+  data:
+    mongodb:
+      uri: mongodb://mongo:27017/talkbbungchi
 
-  # JPA 설정
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update  # or create / create-drop (개발용)
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
 
-  # MongoDB 및 Security 임시 비활성화
   autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
-      - org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
-      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+    exclude: []  # 제외 항목 없애기
 
-# 로깅 설정
+# 로깅 설정 (선택)
 logging:
   level:
     com.dreamhire.talkbbungchi: DEBUG
-    org.springframework.security: DEBUG
+    org.springframework.security: INFO
     org.hibernate.SQL: DEBUG
