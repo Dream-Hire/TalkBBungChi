@@ -1,14 +1,14 @@
-# ✅ 기본 설정 (공통)
+# ✅ 공통 설정
 spring:
   profiles:
-    active: main  # Jenkins 등에서 덮어쓰기 가능
+    active: main  # 기본 profile 설정
 
 server:
   port: 8080  # 기본 포트 (main)
 
 ---
 
-# ✅ main profile
+# ✅ main 프로파일
 spring:
   profiles: main
 
@@ -17,14 +17,10 @@ server:
 
 ---
 
-# ✅ develop profile
+# ✅ develop 프로파일 (중복 spring 제거)
 spring:
   profiles: develop
 
-server:
-  port: 8082
-
-spring:
   application:
     name: talkbbungchi
 
@@ -72,6 +68,9 @@ spring:
 
   autoconfigure:
     exclude: []
+
+server:
+  port: 8082
 
 logging:
   level:
