@@ -1,14 +1,14 @@
-# ✅ 공통 설정 (포트 기본값 및 활성 profile)
-server:
-  port: 8080
-
+# ✅ 기본 설정 (공통)
 spring:
   profiles:
-    active: main
+    active: main  # Jenkins 등에서 덮어쓰기 가능
+
+server:
+  port: 8080  # 기본 포트 (main)
 
 ---
 
-# ✅ main profile 설정
+# ✅ main profile
 spring:
   profiles: main
 
@@ -17,7 +17,7 @@ server:
 
 ---
 
-# ✅ develop profile 설정
+# ✅ develop profile
 spring:
   profiles: develop
 
@@ -27,6 +27,26 @@ server:
 spring:
   application:
     name: talkbbungchi
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: [REST_API_KEY]
+            client-secret: ""
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            client-name: Kakao
+            scope:
+              - profile_nickname
+              - account_email
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
 
   datasource:
     url: jdbc:mysql://mysql:3306/talkbbungchi
@@ -46,6 +66,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
+
+  jwt:
+    secret: Pv3I8QQlrZbF2R+kjHC9CJjl8OmrTSRtpJhvVeskplNS5UIZIOPm5Mj8aaM40d/ajckp+Edv1dWlSR8z/S5T2g==
 
   autoconfigure:
     exclude: []
