@@ -66,9 +66,21 @@ services:
     networks:
       - app-network
 
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    user: root
+    ports:
+      - "8081:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - app-network
+
 volumes:
   mysql_data:
   mongodb_data:
+  jenkins_home:
 
 networks:
   app-network:
