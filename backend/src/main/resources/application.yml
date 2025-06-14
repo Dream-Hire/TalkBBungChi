@@ -1,26 +1,34 @@
 # ✅ 공통 설정
 spring:
   profiles:
-    active: main  # 기본 profile 설정
+    active: main  # 기본 profile
 
 server:
-  port: 8080  # 기본 포트 (main)
+  port: 8080  # 기본 포트
 
 ---
 
-# ✅ main 프로파일
+# ✅ main profile
 spring:
-  profiles: main
+  config:
+    activate:
+      on-profile: main
 
 server:
   port: 8080
 
 ---
 
-# ✅ develop 프로파일 (중복 spring 제거)
+# ✅ develop profile
 spring:
-  profiles: develop
+  config:
+    activate:
+      on-profile: develop
 
+server:
+  port: 8082
+
+spring:
   application:
     name: talkbbungchi
 
@@ -68,9 +76,6 @@ spring:
 
   autoconfigure:
     exclude: []
-
-server:
-  port: 8082
 
 logging:
   level:
