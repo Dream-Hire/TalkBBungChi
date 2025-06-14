@@ -1,5 +1,28 @@
+# ✅ 공통 설정 (포트 기본값 및 활성 profile)
 server:
   port: 8080
+
+spring:
+  profiles:
+    active: main
+
+---
+
+# ✅ main profile 설정
+spring:
+  profiles: main
+
+server:
+  port: 8080
+
+---
+
+# ✅ develop profile 설정
+spring:
+  profiles: develop
+
+server:
+  port: 8082
 
 spring:
   application:
@@ -17,7 +40,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update  # or create / create-drop (개발용)
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -25,9 +48,8 @@ spring:
         format_sql: true
 
   autoconfigure:
-    exclude: []  # 제외 항목 없애기
+    exclude: []
 
-# 로깅 설정 (선택)
 logging:
   level:
     com.dreamhire.talkbbungchi: DEBUG
