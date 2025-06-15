@@ -1,33 +1,3 @@
-# ✅ 공통 설정
-spring:
-  profiles:
-    active: main  # 기본 profile
-
-server:
-  port: 8080  # 기본 포트
-
----
-
-# ✅ main profile
-spring:
-  config:
-    activate:
-      on-profile: main
-
-server:
-  port: 8080
-
----
-
-# ✅ develop profile
-spring:
-  config:
-    activate:
-      on-profile: develop
-
-server:
-  port: 8082
-
 spring:
   application:
     name: talkbbungchi
@@ -37,7 +7,7 @@ spring:
       client:
         registration:
           kakao:
-            client-id: [REST_API_KEY]
+            client-id: ${KAKAO_CLIENT_ID}
             client-secret: ""
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
@@ -53,14 +23,14 @@ spring:
             user-name-attribute: id
 
   datasource:
-    url: jdbc:mysql://mysql:3306/talkbbungchi
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: user
-    password: userpw
 
   data:
     mongodb:
-      uri: mongodb://mongo:27017/talkbbungchi
+      uri: ${SPRING_DATA_MONGODB_URI}
 
   jpa:
     hibernate:
@@ -72,10 +42,10 @@ spring:
         format_sql: true
 
   jwt:
-    secret: Pv3I8QQlrZbF2R+kjHC9CJjl8OmrTSRtpJhvVeskplNS5UIZIOPm5Mj8aaM40d/ajckp+Edv1dWlSR8z/S5T2g==
+    secret: ${JWT_SECRET}
 
-  autoconfigure:
-    exclude: []
+server:
+  port: ${SERVER_PORT}
 
 logging:
   level:
