@@ -1,16 +1,17 @@
-package com.dreamhire.talkbbungchi.global.config;
-
-import com.dreamhire.talkbbungchi.global.config.JwtAuthenticationFilter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.dreamhire.talkbbungchi.global.config.JwtAuthenticationFilter;
+import com.dreamhire.talkbbungchi.global.auth.service.OAuth2SuccessHandler;
+import com.dreamhire.talkbbungchi.domain.user.service.CustomOAuth2UserService;
 
 @Configuration
 @RequiredArgsConstructor
@@ -19,7 +20,6 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final CustomOAuth2UserService customOAuth2UserService;
     private final OAuth2SuccessHandler oAuth2SuccessHandler;
-    private final UserRepository userRepository;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

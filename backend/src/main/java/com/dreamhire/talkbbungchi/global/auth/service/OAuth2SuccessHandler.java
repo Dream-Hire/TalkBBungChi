@@ -1,8 +1,8 @@
-package com.dreamhire.talkbbungchi.global.auth;
+package com.dreamhire.talkbbungchi.global.auth.service;
 
 import com.dreamhire.talkbbungchi.domain.user.entity.User;
 import com.dreamhire.talkbbungchi.domain.user.repository.UserRepository;
-import com.dreamhire.talkbbungchi.global.jwt.JwtTokenProvider;
+import com.dreamhire.talkbbungchi.global.utils.JwtTokenProvider;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
