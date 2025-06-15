@@ -1,9 +1,8 @@
-# 프론트엔드 빌드 전용 이미지
-FROM node:20-alpine as builder
+FROM node:20-alpine as frontend-builder
 WORKDIR /app
-COPY . .
+COPY frontend/ .
 RUN npm ci && npm run build
 
-# nginx로 빌드 결과 서빙
 FROM nginx:stable-alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=frontend-builder /app/dist /usr/share/nginx/html
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
