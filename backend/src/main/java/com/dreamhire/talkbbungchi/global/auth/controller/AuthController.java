@@ -34,7 +34,7 @@ public class AuthController {
             User user = userOpt.get();
             user.setLastLoginAt(LocalDateTime.now());
             userRepository.save(user);
-            String jwt = jwtTokenProvider.createToken(user.getUserId());
+            String jwt = jwtTokenProvider.createToken(user.getUserId(), user.getNickname());
             return ResponseEntity.ok().body(jwt);
         } else {
             return ResponseEntity.status(202).body(kakaoUserInfo);
@@ -60,7 +60,7 @@ public class AuthController {
                 .build();
 
         userRepository.save(user);
-        String jwt = jwtTokenProvider.createToken(user.getUserId());
+        String jwt = jwtTokenProvider.createToken(user.getUserId(), user.getNickname());
         return ResponseEntity.ok().body(jwt);
     }
 }
