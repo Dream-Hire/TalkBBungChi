@@ -1,8 +1,8 @@
-package com.dreamhire.talkbbungchi.domain.auth.controller;
+package com.dreamhire.talkbbungchi.global.auth.controller;
 
-import com.dreamhire.talkbbungchi.domain.auth.dto.model.KakaoUserInfo;
-import com.dreamhire.talkbbungchi.domain.auth.dto.request.KakaoSignupRequest;
-import com.dreamhire.talkbbungchi.domain.auth.service.KakaoAuthService;
+import com.dreamhire.talkbbungchi.global.auth.dto.model.KakaoUserInfo;
+import com.dreamhire.talkbbungchi.global.auth.dto.request.KakaoSignupRequest;
+import com.dreamhire.talkbbungchi.global.auth.service.KakaoAuthService;
 import com.dreamhire.talkbbungchi.domain.user.entity.User;
 import com.dreamhire.talkbbungchi.domain.user.entity.User.UserStatus;
 import com.dreamhire.talkbbungchi.domain.user.repository.UserRepository;

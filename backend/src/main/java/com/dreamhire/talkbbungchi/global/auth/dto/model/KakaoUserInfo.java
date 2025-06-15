@@ -1,4 +1,4 @@
-package com.dreamhire.talkbbungchi.domain.auth.dto.model;
+package com.dreamhire.talkbbungchi.global.auth.dto.model;
 
 import lombok.Getter;
 import lombok.ToString;

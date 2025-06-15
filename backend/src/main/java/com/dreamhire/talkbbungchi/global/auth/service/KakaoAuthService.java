@@ -1,6 +1,6 @@
-package com.dreamhire.talkbbungchi.domain.auth.service;
+package com.dreamhire.talkbbungchi.global.auth.service;
 
-import com.dreamhire.talkbbungchi.domain.auth.dto.model.KakaoUserInfo;
+import com.dreamhire.talkbbungchi.global.auth.dto.model.KakaoUserInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
